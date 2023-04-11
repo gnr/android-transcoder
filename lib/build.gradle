@@ -10,16 +10,22 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 32
     buildToolsVersion '30.0.3'
 
     defaultConfig {
         minSdkVersion 18
-        targetSdkVersion 31
+        targetSdkVersion 32
     }
 
     buildTypes {
         release {
+            zipAlignEnabled true
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debugProguard {
             zipAlignEnabled true
             minifyEnabled false
             shrinkResources false
